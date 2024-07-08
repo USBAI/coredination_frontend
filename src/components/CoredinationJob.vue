@@ -5,7 +5,7 @@
     <div class="__navbar__">
       <div class="navholder">
         <div class="logo">
-          <img src="https://coredination.zendesk.com/hc/theming_assets/01HZPBVPJQM6AARZ5SPR6QGEB0" width="50px" alt="">
+          <img src="https://coredination.zendesk.com/hc/theming_assets/01HZPBVPJQM6AARZ5SPR6QGEB0" alt="">
         </div>
         <div class="navlinks">
           <div class="div1">
@@ -101,7 +101,7 @@ export default {
   },
   mounted() {
     // Make an HTTP GET request to your Django backend API
-    axios.get('http://localhost:8000/coredination/job-detail/')
+    axios.get('https://corediantion-41cd1258aadd.herokuapp.com/coredination/job-detail/')
       .then(response => {
         // Assuming your API returns an array of job objects
         this.jobData = response.data;
@@ -134,6 +134,11 @@ export default {
   justify-content: space-between;
   padding: 10px 0
 }
+@media (max-width: 700px) {
+  .navholder {
+    width: 93%;
+  }
+}
 
 .logo{
   margin-top: 10px;
@@ -142,8 +147,9 @@ export default {
 .navlinks{
   display: flex;
   justify-content: space-around;
-  margin-top: 30px;
+  margin-top: 20px;
 }
+
 
 .navlinks1 a,
 .navlinks2 a{
@@ -154,7 +160,7 @@ export default {
 }
 
 .navlinks3 a{
-  background-color: rgb(255, 149, 0);
+  background-color: rgb(255, 132, 0);
   text-decoration: none;
   color: white;
   font-weight: 600;
@@ -166,6 +172,11 @@ export default {
   margin-right: 100px;
   display: flex;
   justify-content: space-between;
+}
+@media (max-width: 700px) {
+  .div1 {
+    display: none;
+  }
 }
 
 .div1 div{
@@ -207,11 +218,29 @@ export default {
 
 .UEAvGn6LIHmifpBkXKtYbz div a{
   color: white;
-  background-color: orange;
+  background-color: rgb(255, 106, 0);
   padding: 13px 20px;
-  border-radius: 20px;
+  border-radius: 40px;
   text-decoration: none;
   margin-top: 320px;
+}
+
+
+.logo img{
+  width: 40px;
+}
+
+
+@media (max-width: 700px) {
+  .logo img {
+    width: 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  .dgu71lTVNiW50jkOhfvAYPQGRIZcr6 img {
+    display: none;
+  }
 }
 
 .hqkH0NbpLa5yVOZe8MXju2i{
@@ -266,6 +295,12 @@ export default {
   color: white;
 }
 
+@media (max-width: 700px) {
+  .cTk9dmbwMZyY6X4I30aUsLvxoBEp2 {
+    padding: 50px 5px;
+  }
+}
+
 .vNdx7M3b2RCFwXluKY9WEgeZ{
   display: flex;
   flex-wrap: wrap;
@@ -284,6 +319,25 @@ export default {
   border-color: rgba(84, 68, 0, 0.334);
   color: white;
   margin: 20px
+}
+
+@media (max-width: 1000px) {
+  .jobindex {
+    width: 40%
+  }
+}
+
+
+@media (max-width: 700px) {
+  .jobindex {
+    width: 90%
+  }
+}
+
+@media (max-width: 500px) {
+  .jobindex {
+    width: 100%
+  }
 }
 
 .jobtitle h1{
