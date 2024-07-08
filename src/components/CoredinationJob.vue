@@ -1,0 +1,325 @@
+
+
+<template>
+  <div class="coredination">
+    <div class="__navbar__">
+      <div class="navholder">
+        <div class="logo">
+          <img src="https://coredination.zendesk.com/hc/theming_assets/01HZPBVPJQM6AARZ5SPR6QGEB0" width="50px" alt="">
+        </div>
+        <div class="navlinks">
+          <div class="div1">
+            <div class="navlinks1">
+              <a href="">Log in</a>
+            </div>
+            <div class="navlinks2">
+              <a href="">Support</a>
+            </div>
+            <div class="navlinks3">
+              <a href="">BOOK DEMO</a>
+            </div>
+          </div>
+          <div class="div2">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+    </div>
+
+    </div>
+
+
+    <div class="KkfJ3B6huaLjx5F0HGbSyc49EQYDAV">
+      <div class="hqkH0NbpLa5yVOZe8MXju2i">
+        <div class="UEAvGn6LIHmifpBkXKtYbz">
+          <div>
+            <h1>Come Join Us!</h1>
+            <p>At Coredination, we focus on empowering developers to innovate and enhance our transportation and machine rental management app. Join us to advance your career and streamline business operations with cutting-edge technology.</p>
+          </div>
+          <div>
+            <a href="#jobindex">Start Applying</a>
+          </div>
+        </div>
+        <div class="dgu71lTVNiW50jkOhfvAYPQGRIZcr6">
+          <img src="https://www.coredination.com/wp-content/uploads/2021/03/start-hero-1080x1117-png.webp" width="60%" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="SVILykfRQtBr4zdNjulvaWAoEp08">
+      <div class="SVILykfRQtBr4zdNjulvaWAoEp081"></div>
+      <div class="SVILykfRQtBr4zdNjulvaWAoEp082"></div>
+      <div class="SVILykfRQtBr4zdNjulvaWAoEp083"></div>
+      <div class="SVILykfRQtBr4zdNjulvaWAoEp084"></div>
+    </div>
+
+
+    <div class="cTk9dmbwMZyY6X4I30aUsLvxoBEp2">
+      <div class="vNdx7M3b2RCFwXluKY9WEgeZ">
+        <!-- Job listings -->
+        <div class="jobindex" v-for="(job, index) in jobData" :key="index">
+          <div>
+            <div class="main_imgcover">
+              <img :src="job.job_image.img" :width="job.job_image.width" alt="">
+            </div>
+          </div>
+          <div>
+            <div class="jobtitle">
+              <div>
+                <h1>{{ job.jobtitle.h1 }}</h1>
+              </div>
+              <div class="__logo__3432">
+                <img :src="job.logo.img" :width="job.logo.width" alt="">
+              </div>
+            </div>
+            <div class="job_description">
+              <p>{{ job.job_description.p }}</p>
+            </div>
+            <div class="applythisjob">
+              <div>
+                <a :href="job.apply_link">Apply Job</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  name: 'CoredinationJob',
+  data() {
+    return {
+      jobData: []
+    };
+  },
+  mounted() {
+    // Make an HTTP GET request to your Django backend API
+    axios.get('http://localhost:8000/coredination/job-detail/')
+      .then(response => {
+        // Assuming your API returns an array of job objects
+        this.jobData = response.data;
+      })
+      .catch(error => {
+        console.error('Error fetching job data:', error);
+      });
+  }
+}
+</script>
+
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.__navbar__{
+  background-color: rgb(13, 29, 38, 255);
+  width: 100%;
+  display: flex;
+  height: auto;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-shadow: 2px 2px 20px 2px rgba(0, 25, 19, 0.205);
+}
+
+.navholder{
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  padding: 10px 0
+}
+
+.logo{
+  margin-top: 10px;
+}
+
+.navlinks{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.navlinks1 a,
+.navlinks2 a{
+  color: black;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+.navlinks3 a{
+  background-color: rgb(255, 149, 0);
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 13px 20px;
+  border-radius: 20px;
+}
+
+.div1 {
+  margin-right: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.div1 div{
+  margin-left: 40px
+}
+
+.div2 {
+  margin-top: -5px
+}
+
+.div2 div{
+  width: 30px;
+  height: 3px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 4px;
+  border-radius: 20px;
+}
+
+
+.KkfJ3B6huaLjx5F0HGbSyc49EQYDAV{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  color: white;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.UEAvGn6LIHmifpBkXKtYbz{
+  text-align: left;
+}
+
+
+.UEAvGn6LIHmifpBkXKtYbz div{
+  margin-top: 30px;
+}
+
+.UEAvGn6LIHmifpBkXKtYbz div a{
+  color: white;
+  background-color: orange;
+  padding: 13px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  margin-top: 320px;
+}
+
+.hqkH0NbpLa5yVOZe8MXju2i{
+  margin-top: 170px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.SVILykfRQtBr4zdNjulvaWAoEp081{
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.SVILykfRQtBr4zdNjulvaWAoEp082{
+  width: 100%;
+  height: 5px;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.SVILykfRQtBr4zdNjulvaWAoEp083{
+  width: 100%;
+  height: 7px;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.SVILykfRQtBr4zdNjulvaWAoEp084{
+  width: 100%;
+  height: 9px;
+  margin-top: 10px;
+  background-color: white;
+}
+
+
+.jobtitle{
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+}
+
+.__logo__3432 img{
+  margin-top: 30px;
+}
+
+.cTk9dmbwMZyY6X4I30aUsLvxoBEp2{
+  padding: 50px 30px;
+  color: white;
+}
+
+.vNdx7M3b2RCFwXluKY9WEgeZ{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.jobindex{
+  background-color: rgb(13, 29, 38, 255);
+  width: 28%;
+  box-shadow: 2px 2px 20px 2px rgba(0, 20, 58, 0.153);
+  height: fit-content;
+  padding: 3px 3px 40px 3px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(84, 68, 0, 0.334);
+  color: white;
+  margin: 20px
+}
+
+.jobtitle h1{
+text-align: left;
+}
+
+.main_imgcover img{
+  border-radius: 20px;
+}
+
+.job_discription{
+  text-align: left;
+  padding: 0 10px;
+}
+
+.applythisjob {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  text-align: center;
+}
+
+.applythisjob div{
+  width: 98%;
+  background-color: orange;
+  padding: 10px 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.applythisjob a{
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+</style>
