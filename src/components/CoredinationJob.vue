@@ -17,11 +17,14 @@
               <a href="">BOOK DEMO</a>
             </div>
           </div>
-          <div class="div2">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          
+          <a href="https://coredination.se">
+            <div class="div2">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -234,6 +237,11 @@ export default {
 
 .div2 {
   margin-top: -5px
+}
+@media (min-width: 700px) {
+  .div2 {
+    display: none;
+  }
 }
 
 .div2 div{
