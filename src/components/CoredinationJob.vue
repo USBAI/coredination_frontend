@@ -95,10 +95,10 @@
         <div class="popup-form">
           <input type="text" placeholder="Name">
           <input type="email" placeholder="Email">
-          <input type="file" placeholder="Resume">
+          <input type="file" placeholder="Resume" class="file">
           <textarea placeholder="Cover Letter"></textarea>
           <!-- Other inputs -->
-          <button @click="applyJob">Send</button>
+          <button @click="applyJob">Send Application</button>
         </div>
       </div>
       <button class="close-btn" @click="closePopup">
@@ -437,11 +437,11 @@ text-align: left;
 }
 
 .popup-content {
-  background: white;
-  color: black;
+  background-color: rgb(13, 29, 38, 255);
+  color: rgb(255, 255, 255);
   width: 80%;
   max-width: 800px;
-  padding: 20px;
+  padding: 5px;
   border-radius: 10px;
   position: relative;
   max-height: 80vh;  /* Set maximum height */
@@ -472,12 +472,14 @@ text-align: left;
 
 .popup-job-details {
   text-align: center;
+  justify-content: center;
 }
 
 .popup-job-details h1,
 .popup-job-details p,
 .popup-job-details img {
   margin: 10px 0;
+  border-radius: 10px;
 }
 
 .popup-form {
@@ -497,6 +499,10 @@ text-align: left;
   min-width: 100%;
   color: black;
   font-size: 17px;
+}
+
+.file{
+  color: white
 }
 .popup-form textarea {
   min-height: 200px;
