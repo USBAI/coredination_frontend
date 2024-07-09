@@ -72,8 +72,8 @@
               <p>{{ job.job_description.p }}</p>
             </div>
             <div class="applythisjob">
-              <div>
-                <a href="#" @click.prevent="openPopup(job)">Apply Job</a>
+              <div href="#" @click.prevent="openPopup(job)">
+                <a >Apply Job</a>
               </div>
             </div>
           </div>
@@ -82,27 +82,27 @@
     </div>
 
     <!-- Full-page pop-up -->
-    <div v-if="showPopup" class="popup-overlay">
+    <div class="popup-overlay" v-if="showPopup">
       <div class="popup-content">
+        <div class="popup-navbar">
+          <!-- Your navbar content here -->
+        </div>
         <div class="popup-job-details">
-          <div>
-            <h1>{{ selectedJob.jobtitle.h1 }}</h1>
-            <img :src="selectedJob.job_image.img" :width="selectedJob.job_image.width" alt="">
-            <p>{{ selectedJob.job_description.p }}</p>
-          </div>
-          <div class="popup-form">
-            <input type="text" placeholder="Full Name" v-model="applicantName">
-            <input type="email" placeholder="Email" v-model="applicantEmail">
-            <input type="file" @change="handleFileUpload">
-            <textarea placeholder="Cover Letter" v-model="coverLetter"></textarea>
-            <!-- Additional input fields as required -->
-            <button @click="submitApplication">Send</button>
-          </div>
-          <button @click="closePopup" class="close-btn">Close</button>
+          <h1>{{ selectedJob.jobtitle.h1 }}</h1>
+          <img :src="selectedJob.job_image.img" :width="selectedJob.job_image.width" alt="">
+          <p>{{ selectedJob.job_description.p }}</p>
+        </div>
+        <div class="popup-form">
+          <input type="text" placeholder="Name">
+          <input type="email" placeholder="Email">
+          <input type="file" placeholder="Resume">
+          <textarea placeholder="Cover Letter"></textarea>
+          <!-- Other inputs -->
+          <button @click="applyJob">Send</button>
         </div>
       </div>
+      <button class="close-btn" @click="closePopup">Close</button>
     </div>
-
   </div>
 </template>
 
@@ -507,9 +507,10 @@ text-align: left;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  position: fixed;
+  top: 50px;
+  right: 340px;
+  z-index: 1001; /* Ensure it is above the pop-up content */
 }
 
 </style>
