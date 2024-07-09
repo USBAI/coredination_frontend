@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="coredination">
     <div class="__navbar__">
@@ -25,10 +23,8 @@
             <div></div>
           </div>
         </div>
+      </div>
     </div>
-
-    </div>
-
 
     <div class="KkfJ3B6huaLjx5F0HGbSyc49EQYDAV">
       <div class="hqkH0NbpLa5yVOZe8MXju2i">
@@ -54,7 +50,6 @@
       <div class="SVILykfRQtBr4zdNjulvaWAoEp084"></div>
     </div>
 
-
     <div class="cTk9dmbwMZyY6X4I30aUsLvxoBEp2" id="cTk9dmbwMZyY6X4I30aUsLvxoBEp2333">
       <div class="vNdx7M3b2RCFwXluKY9WEgeZ">
         <!-- Job listings -->
@@ -78,10 +73,32 @@
             </div>
             <div class="applythisjob">
               <div>
-                <a :href="job.apply_link">Apply Job</a>
+                <a href="#" @click.prevent="openPopup(job)">Apply Job</a>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full-page pop-up -->
+    <div v-if="showPopup" class="popup-overlay">
+      <div class="popup-content">
+        <div class="popup-job-details">
+          <div>
+            <h1>{{ selectedJob.jobtitle.h1 }}</h1>
+            <img :src="selectedJob.job_image.img" :width="selectedJob.job_image.width" alt="">
+            <p>{{ selectedJob.job_description.p }}</p>
+          </div>
+          <div class="popup-form">
+            <input type="text" placeholder="Full Name" v-model="applicantName">
+            <input type="email" placeholder="Email" v-model="applicantEmail">
+            <input type="file" @change="handleFileUpload">
+            <textarea placeholder="Cover Letter" v-model="coverLetter"></textarea>
+            <!-- Additional input fields as required -->
+            <button @click="submitApplication">Send</button>
+          </div>
+          <button @click="closePopup" class="close-btn">Close</button>
         </div>
       </div>
     </div>
@@ -96,25 +113,50 @@ export default {
   name: 'CoredinationJob',
   data() {
     return {
-      jobData: []
+      jobData: [],
+      showPopup: false,
+      selectedJob: null,
+      applicantName: '',
+      applicantEmail: '',
+      coverLetter: '',
+      uploadedFile: null,
     };
   },
   mounted() {
-    // Make an HTTP GET request to your Django backend API
     axios.get('https://corediantion-41cd1258aadd.herokuapp.com/coredination/job-detail/')
       .then(response => {
-        // Assuming your API returns an array of job objects
         this.jobData = response.data;
       })
       .catch(error => {
         console.error('Error fetching job data:', error);
       });
+  },
+  methods: {
+    openPopup(job) {
+      this.selectedJob = job;
+      this.showPopup = true;
+    },
+    closePopup() {
+      this.showPopup = false;
+      this.selectedJob = null;
+    },
+    handleFileUpload(event) {
+      this.uploadedFile = event.target.files[0];
+    },
+    submitApplication() {
+      // Handle the form submission logic here
+      // For example, you can use axios to send the application data to your server
+      console.log('Name:', this.applicantName);
+      console.log('Email:', this.applicantEmail);
+      console.log('Cover Letter:', this.coverLetter);
+      console.log('Uploaded File:', this.uploadedFile);
+      // Reset form fields and close the popup
+      this.closePopup();
+    }
   }
-}
+};
 </script>
 
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .__navbar__{
   background-color: rgb(13, 29, 38, 255);
@@ -376,4 +418,98 @@ text-align: left;
   text-decoration: none;
   font-size: 17px;
 }
+
+/* Pop-up styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  color: black;
+  width: 80%;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  max-height: 80vh;  /* Set maximum height */
+  overflow-y: scroll;  /* Enable vertical scrolling */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.popup-content::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Hide scrollbar for Firefox */
+.popup-content {
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.popup-navbar {
+  background-color: rgb(13, 29, 38, 255);
+  width: 100%;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.popup-job-details {
+  text-align: center;
+}
+
+.popup-job-details h1,
+.popup-job-details p,
+.popup-job-details img {
+  margin: 10px 0;
+}
+
+.popup-form {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.popup-form input,
+.popup-form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.popup-form button {
+  background-color: orange;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-btn {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 </style>
