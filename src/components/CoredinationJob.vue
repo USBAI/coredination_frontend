@@ -494,7 +494,7 @@ text-align: left;
 
 .popup-form input,
 .popup-form textarea {
-  width: 100%;
+  width: 95%;
   margin-bottom: 10px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -509,8 +509,8 @@ text-align: left;
   color: white
 }
 .popup-form textarea {
-  min-height: 200px;
-  max-height: 400px;
+  min-height: 40px;
+  max-height: 140px;
 }
 
 .popup-form button {
