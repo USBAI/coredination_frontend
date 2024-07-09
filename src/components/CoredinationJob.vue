@@ -98,7 +98,7 @@
           <input type="file" placeholder="Resume" class="file">
           <textarea placeholder="Cover Letter"></textarea>
           <!-- Other inputs -->
-          <button @click="applyJob">Send Application</button>
+          <button @click="sendapplication">Send Application</button>
         </div>
       </div>
       <button class="close-btn" @click="closePopup">
@@ -110,6 +110,7 @@
 
 <script>
 import axios from 'axios';
+
 
 export default {
   name: 'CoredinationJob',
@@ -134,6 +135,9 @@ export default {
       });
   },
   methods: {
+    sendapplication() {
+      alert("The Server is getting developed")
+    },
     openPopup(job) {
       this.selectedJob = job;
       this.showPopup = true;
