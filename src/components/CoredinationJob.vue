@@ -439,6 +439,7 @@ text-align: left;
   align-items: center;
   z-index: 1000;
   backdrop-filter: blur(10px);
+  overflow-x:hidden;
 }
 
 .popup-content {
@@ -447,6 +448,7 @@ text-align: left;
   width: 80%;
   max-width: 900px;
   padding: 10px;
+  overflow-x:hidden;
   border-radius: 10px;
   position: relative;
   max-height: 80vh;  /* Set maximum height */
