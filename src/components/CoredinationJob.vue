@@ -101,7 +101,9 @@
           <button @click="applyJob">Send</button>
         </div>
       </div>
-      <button class="close-btn" @click="closePopup">Close</button>
+      <button class="close-btn" @click="closePopup">
+        <svg width="20px" height="20px" viewBox="0 0 1024 1024" fill="white" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M176.662 817.173c-8.19 8.471-7.96 21.977 0.51 30.165 8.472 8.19 21.978 7.96 30.166-0.51l618.667-640c8.189-8.472 7.96-21.978-0.511-30.166-8.471-8.19-21.977-7.96-30.166 0.51l-618.666 640z" fill=""></path><path d="M795.328 846.827c8.19 8.471 21.695 8.7 30.166 0.511 8.471-8.188 8.7-21.694 0.511-30.165l-618.667-640c-8.188-8.471-21.694-8.7-30.165-0.511-8.471 8.188-8.7 21.694-0.511 30.165l618.666 640z" fill=""></path></g></svg>
+      </button>
     </div>
   </div>
 </template>
@@ -426,11 +428,12 @@ text-align: left;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.241);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  backdrop-filter: blur(10px);
 }
 
 .popup-content {
@@ -503,14 +506,13 @@ text-align: left;
 .close-btn {
   background-color: red;
   color: white;
-  padding: 10px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  padding: 5px 8px 1px ;
+  border-radius: 100px;;
   position: fixed;
-  top: 50px;
-  right: 340px;
+  top: 10px;
+  left: 10px;
   z-index: 1001; /* Ensure it is above the pop-up content */
 }
-
 </style>
