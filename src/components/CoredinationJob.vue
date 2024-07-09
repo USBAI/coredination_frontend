@@ -38,7 +38,7 @@
             <p>At Coredination, we focus on empowering developers to innovate and enhance our transportation and machine rental management app. Join us to advance your career and streamline business operations with cutting-edge technology.</p>
           </div>
           <div>
-            <a href="#jobindex">Start Applying</a>
+            <a href="#cTk9dmbwMZyY6X4I30aUsLvxoBEp2333">Start Applying</a>
           </div>
         </div>
         <div class="dgu71lTVNiW50jkOhfvAYPQGRIZcr6">
@@ -55,7 +55,7 @@
     </div>
 
 
-    <div class="cTk9dmbwMZyY6X4I30aUsLvxoBEp2">
+    <div class="cTk9dmbwMZyY6X4I30aUsLvxoBEp2" id="cTk9dmbwMZyY6X4I30aUsLvxoBEp2333">
       <div class="vNdx7M3b2RCFwXluKY9WEgeZ">
         <!-- Job listings -->
         <div class="jobindex" v-for="(job, index) in jobData" :key="index">
