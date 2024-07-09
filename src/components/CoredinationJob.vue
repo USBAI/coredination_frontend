@@ -93,7 +93,8 @@
           <p>{{ selectedJob.job_description.p }}</p>
         </div>
         <div class="popup-form">
-          <input type="text" placeholder="Name">
+          <input type="text" placeholder="First Name">
+          <input type="text" placeholder="Last Name">
           <input type="email" placeholder="Email">
           <input type="file" placeholder="Resume" class="file">
           <textarea placeholder="Cover Letter"></textarea>
@@ -444,12 +445,18 @@ text-align: left;
   background-color: rgb(13, 29, 38, 255);
   color: rgb(255, 255, 255);
   width: 80%;
-  max-width: 800px;
-  padding: 5px;
+  max-width: 900px;
+  padding: 10px;
   border-radius: 10px;
   position: relative;
   max-height: 80vh;  /* Set maximum height */
   overflow-y: scroll;  /* Enable vertical scrolling */
+}
+@media (max-width: 700px) {
+  .popup-content {
+  width: 90%;
+  max-width: none;
+  }
 }
 
 /* Hide scrollbar for WebKit browsers */
