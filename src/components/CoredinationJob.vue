@@ -136,7 +136,7 @@ export default {
   },
   methods: {
     sendapplication() {
-      alert("The Server is getting developed")
+      alert("The Server is being developed")
     },
     openPopup(job) {
       this.selectedJob = job;
