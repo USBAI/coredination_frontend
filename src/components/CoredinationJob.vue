@@ -23,13 +23,6 @@
       </div>
     </div>
 
-    <div>
-      <div class="oioujkndnfj">
-        <span>Logged in Under Elias Luzwehimana Account</span>
-      </div>
-      <br><br><br><br><br>
-    </div>
-
     <!-- Job Listings -->
     <div class="vNdx7M3b2RCFwXluKY9WEgeZ">
       <div class="jobindex" v-for="(job, index) in jobData" :key="index" @click.prevent="openPopup(job)">
@@ -68,6 +61,12 @@
           <p><strong>Latitude:</strong> {{ selectedJob.destinations.length > 0 ? selectedJob.destinations[0].location.latitude : 'null' }}</p>
           <p><strong>Longitude:</strong> {{ selectedJob.destinations.length > 0 ? selectedJob.destinations[0].location.longitude : 'null' }}</p>
         </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="oioujkndnfj">
+        <span>Logged in Under Elias Luzwehimana Account</span>
       </div>
     </div>
   </div>
@@ -184,7 +183,7 @@ export default {
   text-align: center;
   font-size: 18px;
   color: white;
-  margin-top: 100px;
+  margin-top: 0px;
   padding-top: 20px;
 }
 
@@ -208,8 +207,6 @@ export default {
   margin: 20px;
   cursor: pointer;
   transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
 }
 
 .jobindex:hover {
@@ -243,19 +240,6 @@ export default {
   border-radius: 5px;
   color: white;
   text-decoration: none;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1000px) {
-  .jobindex {
-    width: 45%;
-  }
-}
-
-@media (max-width: 700px) {
-  .jobindex {
-    width: 90%;
-  }
 }
 
 /* Full-screen pop-up */
@@ -298,5 +282,12 @@ export default {
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 800px) {
+  .jobindex {
+    width: 95%;
+  }
 }
 </style>
