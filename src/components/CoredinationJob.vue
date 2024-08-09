@@ -188,10 +188,9 @@ export default {
 }
 
 .vNdx7M3b2RCFwXluKY9WEgeZ {
-  padding: 150px 30px;
+  padding: 80px 30px;
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
   justify-content: center;
 }
 
