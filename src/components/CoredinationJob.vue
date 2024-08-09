@@ -93,15 +93,26 @@ export default {
     }
   },
   mounted() {
-    axios.get('https://corediantion-41cd1258aadd.herokuapp.com/coredination/get-job-data/')
-      .then(response => {
-        this.jobData = response.data;
-        console.log(this.jobData); // For debugging
-      })
-      .catch(error => {
-        console.error('Error fetching job data:', error);
-      });
+    const apiKey = 'd561d1ea-d51f-4b3e-a48a-b5cbf683a732';
+    const apiUrl = 'https://corediantion-41cd1258aadd.herokuapp.com/coredination/get-job-data/';
+
+    console.log('API Key:', apiKey);
+    console.log('API URL:', apiUrl);
+
+    axios.get(apiUrl, {
+      headers: {
+        'STVN-API-Key': apiKey
+      }
+    })
+    .then(response => {
+      this.jobData = response.data;
+      console.log('Fetched Job Data:', this.jobData);
+    })
+    .catch(error => {
+      console.error('Error fetching job data:', error.response || error.message || error);
+    });
   },
+
   methods: {
     openPopup(job) {
       this.selectedJob = job;
