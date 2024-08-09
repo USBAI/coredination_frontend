@@ -86,7 +86,7 @@ export default {
     };
   },
   mounted() {
-    axios.get('http://127.0.0.1:8004/coredination/get-job-data/')
+    axios.get('https://corediantion-41cd1258aadd.herokuapp.com/coredination/get-job-data/')
       .then(response => {
         this.jobData = response.data;
         console.log(this.jobData); // For debugging
