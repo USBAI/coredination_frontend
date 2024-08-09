@@ -287,7 +287,7 @@ export default {
 /* Responsive adjustments */
 @media (max-width: 800px) {
   .jobindex {
-    width: 95%;
+    width: 100%;
   }
 }
 </style>
