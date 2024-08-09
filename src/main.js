@@ -2,10 +2,8 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import axios from 'axios';
 
-// Set the Axios base URL directly
-const apiUrl = 'https://corediantion-41cd1258aadd.herokuapp.com/coredination/get-job-data/';
-
-axios.defaults.baseURL = apiUrl;
+// Set the Axios base URL
+axios.defaults.baseURL = 'https://corediantion-41cd1258aadd.herokuapp.com/'; // Adjust if needed for localhost
 
 const app = createApp(App);
 
