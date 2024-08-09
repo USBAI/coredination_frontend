@@ -25,7 +25,7 @@
 
     <!-- Job Listings -->
     <div class="vNdx7M3b2RCFwXluKY9WEgeZ">
-      <div class="jobindex" v-for="(job, index) in jobData" :key="index" @click.prevent="openPopup(job)">
+      <div class="jobindex" v-for="(job, index) in formattedJobs" :key="index" @click.prevent="openPopup(job)">
         <div class="jobtitle">
           <h1>{{ job.title || 'null' }}</h1>
         </div>
@@ -54,12 +54,8 @@
           <p><strong>Start Time:</strong> {{ selectedJob.startTime || 'null' }}</p>
           <p><strong>End Time:</strong> {{ selectedJob.endTime || 'null' }}</p>
           <p><strong>Status:</strong> {{ selectedJob.state || 'null' }}</p>
-          <p><strong>Duration:</strong> {{ selectedJob.duration || 'null' }}</p>
-          <p><strong>Customer:</strong> {{ selectedJob.customerName || 'null' }}</p>
-          <p><strong>Orderer:</strong> {{ selectedJob.orderOrdererFullName || 'null' }}</p>
+          <p><strong>Duration:</strong> {{ selectedJob.duration || 'null' }} hours</p>
           <p><strong>Location:</strong> {{ selectedJob.destinations.length > 0 ? selectedJob.destinations[0].location.placeName : 'null' }}</p>
-          <p><strong>Latitude:</strong> {{ selectedJob.destinations.length > 0 ? selectedJob.destinations[0].location.latitude : 'null' }}</p>
-          <p><strong>Longitude:</strong> {{ selectedJob.destinations.length > 0 ? selectedJob.destinations[0].location.longitude : 'null' }}</p>
         </div>
       </div>
     </div>
@@ -84,6 +80,18 @@ export default {
       selectedJob: null,
     };
   },
+  computed: {
+    formattedJobs() {
+      return this.jobData.map(job => {
+        return {
+          ...job,
+          startTime: job.startTime ? this.formatTimestamp(job.startTime) : 'null',
+          endTime: job.endTime ? this.formatTimestamp(job.endTime) : 'null',
+          duration: job.duration ? (job.duration / 60).toFixed(2) : 'null', // Convert minutes to hours
+        };
+      });
+    }
+  },
   mounted() {
     axios.get('https://corediantion-41cd1258aadd.herokuapp.com/coredination/get-job-data/')
       .then(response => {
@@ -102,6 +110,17 @@ export default {
     closePopup() {
       this.showPopup = false;
       this.selectedJob = null;
+    },
+    formatTimestamp(timestamp) {
+      const date = new Date(timestamp);
+      const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      };
+      return date.toLocaleDateString(undefined, options);
     }
   }
 };
@@ -188,7 +207,7 @@ export default {
 }
 
 .vNdx7M3b2RCFwXluKY9WEgeZ {
-  padding: 80px 30px;
+  padding: 150px 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -287,7 +306,7 @@ export default {
 /* Responsive adjustments */
 @media (max-width: 800px) {
   .jobindex {
-    width: 100%;
+    width: 95%;
   }
 }
 </style>
