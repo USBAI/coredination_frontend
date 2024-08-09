@@ -191,6 +191,7 @@ export default {
   padding: 150px 30px;
   display: flex;
   flex-wrap: wrap;
+  width: 90%;
   justify-content: center;
 }
 
