@@ -98,7 +98,7 @@ export default {
   methods: {
     fetchJobs() {
       const apiKey = 'jhgyfidtsryefyigu-jugyuftdyrtfugiho-ouiygfy8tu878';
-      const apiUrl = 'http://127.0.0.1:8000/coredination/get-job-data';
+      const apiUrl = 'https://coredinationserer-b81fa50404cb.herokuapp.com/coredination/get-job-data';
 
       axios.get(apiUrl, {
         headers: {
