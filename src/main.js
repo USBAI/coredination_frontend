@@ -3,7 +3,7 @@ import App from './App.vue';
 import axios from 'axios';
 
 // Set the Axios base URL
-axios.defaults.baseURL = 'https://corediantion-41cd1258aadd.herokuapp.com/'; // Adjust if needed for localhost
+axios.defaults.baseURL = 'https://coredinationserer-b81fa50404cb.herokuapp.com/'; // Adjust if needed for localhost
 
 const app = createApp(App);
 
