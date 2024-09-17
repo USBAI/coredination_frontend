@@ -98,7 +98,7 @@ export default {
   methods: {
     fetchJobs() {
       const apiKey = 'jhgyfidtsryefyigu-jugyuftdyrtfugiho-ouiygfy8tu878';
-      const apiUrl = '/coredination/get-job-data/'; // Use the base URL and the relative path
+      const apiUrl = 'https://coredinationserer-b81fa50404cb.herokuapp.com/coredination/get-job-data';
 
       axios.get(apiUrl, {
         headers: {
@@ -112,7 +112,8 @@ export default {
       .catch(error => {
         console.error('Error fetching job data:', error.response || error.message || error);
       });
-    },
+  }
+
     openPopup(job) {
       this.selectedJob = job;
       this.showPopup = true;
